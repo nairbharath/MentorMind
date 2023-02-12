@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">1042360767076-gi4rcc38ihmdv1kcjfjb1bl0gca64bhj.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">1042360767076</string>
+    <string name="google_api_key" translatable="false">AIzaSyDk4kDagPRiSRzpcBKVO8UasMZIYb3PDhI</string>
+    <string name="google_app_id" translatable="false">1:1042360767076:android:d6ae0c569b4f2732bd8571</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDk4kDagPRiSRzpcBKVO8UasMZIYb3PDhI</string>
+    <string name="google_storage_bucket" translatable="false">mentor-mind-235df.appspot.com</string>
+    <string name="project_id" translatable="false">mentor-mind-235df</string>
+</resources>
