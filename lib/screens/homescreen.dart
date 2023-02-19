@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mentor_mind/screens/category_box_for_filter.dart';
+import 'package:mentor_mind/screens/profile.dart';
+import 'package:mentor_mind/screens/request.dart';
 import 'package:mentor_mind/screens/request_box.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -34,14 +36,28 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(color: Colors.white),
         ),
         actions: [
-          Icon(
-            CupertinoIcons.add,
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => ProfilePage()));
+            },
+            child: Icon(
+              CupertinoIcons.add,
+            ),
           ),
           SizedBox(
             width: 20,
           ),
-          Icon(
-            CupertinoIcons.person_crop_circle_fill,
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) => RequestPage(
+                        subjects: widget.types,
+                      )));
+            },
+            child: Icon(
+              CupertinoIcons.person_crop_circle_fill,
+            ),
           ),
           SizedBox(
             width: 20,
