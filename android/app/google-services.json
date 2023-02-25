@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "1042360767076",
-    "project_id": "mentor-mind-235df",
-    "storage_bucket": "mentor-mind-235df.appspot.com"
+    "project_number": "685772891544",
+    "project_id": "mentor-mind-af1e9",
+    "storage_bucket": "mentor-mind-af1e9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1042360767076:android:d6ae0c569b4f2732bd8571",
+        "mobilesdk_app_id": "1:685772891544:android:ac7308e4f6361b79c6b7ed",
         "android_client_info": {
           "package_name": "com.example.mentor_mind"
         }
@@ -20,7 +20,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDk4kDagPRiSRzpcBKVO8UasMZIYb3PDhI"
+          "current_key": "AIzaSyDrJniksoHq8tt8qDWf2T3qkLwH8dIKgLc"
         }
       ],
       "services": {

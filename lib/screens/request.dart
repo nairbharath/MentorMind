@@ -5,7 +5,7 @@ import 'package:dropdown_search/dropdown_search.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'package:mentor_mind/model/request_model.dart';
+import 'package:mentor_mind/model/request_model.dart';
 import 'package:mentor_mind/screens/homescreen.dart';
 import 'package:uuid/uuid.dart';
 import '../utils/date_utils.dart' as date_util;
@@ -19,39 +19,38 @@ class RequestPage extends StatefulWidget {
 }
 
 class _RequestPageState extends State<RequestPage> {
-  // Future uploadFile() async {
-  //   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  //   final user = FirebaseAuth.instance.currentUser!;
-  //   String requestID = const Uuid().v1();
+  Future uploadFile() async {
+    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+    final user = FirebaseAuth.instance.currentUser!;
+    String requestID = const Uuid().v1();
+    Request request = Request(
+      topic: _selectedSubject == 'Others'
+          ? _topicController.text
+          : _selectedSubject,
+      description: _noteController.text,
+      uid: user.uid,
+      subject: 'Physics',
+      date: date.toString(),
+      type: selectedRadioButton,
+      amount: _amountController.text,
+      requestID: requestID,
+      datetime: DateTime.now(),
+    );
 
-  // Request request = Request(
-  //   topic: _selectedSubject == 'Others'
-  //       ? _topicController.text
-  //       : _selectedSubject,
-  //   description: _noteController.text,
-  //   uid: user.uid,
-  //   subject: 'Physics',
-  //   date: date.toString(),
-  //   type: selectedRadioButton,
-  //   amount: _amountController.text,
-  //   requestID: requestID,
-  //   datetime: DateTime.now(),
-  // );
+    try {
+      _firestore.collection('requests').doc(requestID).set(request.toJson());
+    } catch (e) {
+      print(e.toString());
+    }
 
-  // try {
-  //   _firestore.collection('requests').doc(requestID).set(request.toJson());
-  // } catch (e) {
-  //   print(e.toString());
-  // }
-
-  //   try {
-  //     _firestore.collection('users').doc(user.uid).update({
-  //       'requests': FieldValue.arrayUnion([requestID])
-  //     });
-  //   } catch (e) {
-  //     print(e.toString());
-  //   }
-  // }
+    try {
+      _firestore.collection('users').doc(user.uid).update({
+        'requests': FieldValue.arrayUnion([requestID])
+      });
+    } catch (e) {
+      print(e.toString());
+    }
+  }
 
   int date = DateTime.now().day;
 
@@ -370,7 +369,7 @@ class _RequestPageState extends State<RequestPage> {
                             elevation: 0,
                             child: GestureDetector(
                               onTap: () {
-                                // uploadFile();
+                                uploadFile();
                                 Navigator.of(context).pushReplacement(
                                   MaterialPageRoute(
                                     builder: (context) => HomeScreen(),
